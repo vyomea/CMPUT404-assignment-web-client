@@ -61,7 +61,7 @@ class HTTPClient(object):
         return None
 
     def get_body(self, data):
-        body = data.split("\r\n")[-1]
+        body = data.split("\r\n\r\n")[-1]
         return body
     
     def sendall(self, data):
