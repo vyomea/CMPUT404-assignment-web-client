@@ -88,7 +88,7 @@ class HTTPClient(object):
         
         host, port, path = self.get_host_port(url)
 
-        request_data = f"GET {path} HTTP/1.1\r\nHost: {host}\r\nConnection:close\r\n\r\n"
+        request_data = f"GET {path} HTTP/1.1\r\nHost: {host}\r\nUser-Agent:laptop\r\nConnection:close\r\n\r\n"
 
         socket_conn = self.connect(host, port)
 
@@ -117,7 +117,7 @@ class HTTPClient(object):
                 arguments.append(f"{item[0]}={item[1]}")
             args_string = "&".join(arguments)
 
-        request_data = f"POST {path} HTTP/1.1\r\nHost: {host}\r\nContent-Length: {len(args_string)}\r\nContent-Type:  application/x-www-form-urlencoded\r\nConnection:close\r\n\r\n{args_string}"
+        request_data = f"POST {path} HTTP/1.1\r\nHost: {host}\r\nUser-Agent:laptop\r\nContent-Length: {len(args_string)}\r\nContent-Type:  application/x-www-form-urlencoded\r\nConnection:close\r\n\r\n{args_string}"
 
         socket_conn = self.connect(host, port)
 
